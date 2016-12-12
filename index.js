@@ -85,7 +85,7 @@ export default class ModalPicker extends BaseComponent {
     }
 
     onChange(item) {
-        this.props.onChange(item);
+        this.props.onItemChange(item);
         this.setState({selected: item.label});
         this.close();
     }
@@ -130,7 +130,7 @@ export default class ModalPicker extends BaseComponent {
 
         return (
             <View style={[styles.overlayStyle, this.props.overlayStyle]} key={'modalPicker'+(componentIndex++)}>
-                <View style={styles.optionContainer}>
+                <View style={styles.optionContainer, {backgroundColor: '#fff'}]}>
                     <ScrollView keyboardShouldPersistTaps>
                         <View style={{paddingHorizontal:10}}>
                             {options}
@@ -171,7 +171,7 @@ export default class ModalPicker extends BaseComponent {
         return (
             <View style={this.props.style}>
                 {dp}
-                <TouchableOpacity onPress={this.open}>
+                <TouchableOpacity onPress={this.open} activeOpacity={1}>
                     {this.renderChildren()}
                 </TouchableOpacity>
             </View>
