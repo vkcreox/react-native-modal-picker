@@ -86,6 +86,7 @@ export default class ModalPicker extends BaseComponent {
 
     onChange(item) {
         this.props.onItemChange(item);
+        this.props.onChange(item);
         this.setState({selected: item.label});
         this.close();
     }
